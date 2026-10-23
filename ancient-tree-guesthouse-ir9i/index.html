@@ -4,66 +4,94 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Ancient tree guesthouse · Mirissa</title>
+<title>Ancient tree guesthouse, Mirissa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--p:#8a4b2a;--a:#d9a441;--bg:#fbfaf7;--ink:#1c1c1a}
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
-.banner{background:#1c1c1a;color:#fff;font-size:13px;text-align:center;padding:8px 12px}
-.hero{background:var(--p);color:#fff;padding:72px 20px 80px;text-align:center}
-.hero h1{margin:0 0 8px;font-size:clamp(32px,7vw,56px);line-height:1.1}
-.hero p.t{margin:0 auto 6px;font-size:clamp(18px,3.5vw,24px);max-width:640px}
-.hero p.s{margin:0 auto 28px;opacity:.85;max-width:560px}
-.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn{display:inline-block;background:var(--a);color:#1c1c1a;text-decoration:none;font-weight:600;padding:14px 22px;border-radius:999px}
-.btn.ghost{background:transparent;color:#fff;border:2px solid #fff}
-section{max-width:960px;margin:0 auto;padding:56px 20px}
-h2{margin:0 0 20px;font-size:28px;color:var(--p)}
-.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.card{background:#fff;border:1px solid #e7e4dc;border-radius:16px;padding:20px}
-.card h3{margin:0 0 6px}.card p{margin:0;color:#555}
-.note{font-size:13px;color:#777;margin-top:12px}
-ol{list-style:none;padding:0;margin:0;display:grid;gap:12px}
-li{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #e7e4dc;border-radius:14px;padding:14px 16px}
-li span{flex:none;width:32px;height:32px;border-radius:50%;background:var(--p);color:#fff;display:grid;place-items:center;font-weight:700}
-#contact{text-align:center}
-footer{text-align:center;font-size:13px;color:#777;padding:28px 20px 40px}
-footer a,#contact a:not(.btn){color:var(--p)}
+:root{--bg:#fbf7f2;--ink:#241532;--muted:#625468;--accent:#d9622b;--accent-ink:#ffffff;--hero-ink:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif;font-size:18px;line-height:1.6;padding-bottom:84px}
+h1,h2,h3{font-family:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;line-height:1.05;margin:0;letter-spacing:-.02em}
+a{color:inherit}
+.ribbon{position:absolute;top:0;left:0;right:0;z-index:3;text-align:center;font-size:13px;padding:8px 14px;background:rgba(15,15,15,.82);color:#fff}
+.hero{position:relative;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(#2b1b3d,#f4a259);color:var(--hero-ink)}
+.hero svg{display:block;width:100%;height:clamp(190px,31vw,440px);margin-top:48px}
+.hero .copy{position:relative;z-index:2;width:min(1100px,100%);margin:0 auto;padding:128px 24px 0}
+.hero h1{font-size:clamp(2.8rem,9vw,7rem);font-weight:800;max-width:11ch;overflow-wrap:anywhere}
+.hero .tag{font-size:clamp(1.15rem,2.6vw,1.6rem);max-width:30ch;margin:20px 0 8px;font-weight:500}
+.hero .sub{max-width:44ch;margin:0 0 28px;opacity:.85}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:600;padding:15px 24px;border-radius:12px}
+.btn.ghost{background:transparent;color:inherit;box-shadow:inset 0 0 0 2px currentColor}
+.btn.dark{color:var(--ink)}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.layer{transform-box:fill-box}
+@media (prefers-reduced-motion:no-preference){
+  .layer{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+  .layer:nth-of-type(2){animation-delay:.08s}.layer:nth-of-type(3){animation-delay:.16s}.layer:nth-of-type(4){animation-delay:.24s}
+  @keyframes rise{from{transform:translateY(60px);opacity:0}to{transform:none;opacity:1}}
+}
+main{width:min(1100px,100%);margin:0 auto;padding:0 24px}
+section{padding:88px 0 0}
+h2{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;max-width:16ch}
+.list{margin-top:36px}
+.row{display:grid;grid-template-columns:1fr 1.4fr auto;gap:12px 40px;align-items:baseline;padding:28px 0}
+.row+.row{border-top:1px solid color-mix(in srgb,var(--ink) 14%,transparent)}
+.row h3{font-size:1.6rem;font-weight:600}
+.row p{margin:0;color:var(--muted);max-width:46ch}
+.row a{font-weight:600;color:var(--accent);text-underline-offset:4px}
+.note{color:var(--muted);font-size:14px;margin:8px 0 0}
+#contact{padding-bottom:96px}
+#contact p{color:var(--muted);max-width:46ch;margin:14px 0 28px}
+footer{padding:28px 24px 40px;text-align:center;font-size:14px;color:var(--muted)}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:5;padding:12px 16px;background:var(--bg);box-shadow:0 -6px 24px rgba(0,0,0,.12)}
+.bar .btn{display:block;text-align:center}
+@media (min-width:820px){.bar{display:none}body{padding-bottom:0}}
+@media (max-width:720px){.row{grid-template-columns:1fr}.hero .copy{padding-top:112px}}
 </style>
 </head>
 <body>
-<div class="banner">Website concept made for Ancient tree guesthouse by Alexandre. Layout and example text only, nothing here is final.</div>
 <header class="hero">
-  <h1>Ancient tree guesthouse</h1>
-  <p class="t">A welcoming place to stay in Mirissa</p>
-  <p class="s">Comfortable rooms, local food and a team that looks after you.</p>
-  <div class="btns">
-      <a class="btn" href="https://wa.me/0094778595501">Message us on WhatsApp</a>
+  <div class="ribbon">Website concept made for Ancient tree guesthouse by Alexandre. Layout and example text only, nothing here is final.</div>
+  <div class="copy">
+    <h1>Ancient tree guesthouse</h1>
+    <p class="tag">A place to stay in Mirissa that feels like home.</p>
+    <p class="sub">Comfortable rooms, local food and a team that looks after you from the first evening.</p>
+    <div class="btns"><a class="btn" href="https://wa.me/0094778595501?text=Hi%20Ancient%20tree%20guesthouse%2C%20I'd%20like%20to%20ask%20about%20availability.">Message us on WhatsApp</a></div>
   </div>
+  <svg viewBox="0 250 1440 450" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><path class="layer" d="M-140,478.8 Q0,481.3 70,466.2 Q140,451.1 210,454 Q280,456.8 350,466.2 Q420,475.6 490,460.1 Q560,444.6 630,463.7 Q700,482.7 770,472.6 Q840,462.5 910,453.1 Q980,443.7 1050,444.1 Q1120,444.4 1190,462.8 Q1260,481.1 1330,494.5 Q1400,507.8 1470,481 L1540,700 L-100,700 Z" fill="#6b2f5c"/><g><path d="M200.87931230664253,640 Q208.87931230664253,525 240.87931230664253,410" stroke="#1a1026" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M0,0 Q34,-26 78,-6 Q40,-14 0,0Z" transform="translate(240.87931230664253 410) rotate(-160)" fill="#1a1026"/><path d="M0,0 Q34,-26 78,-6 Q40,-14 0,0Z" transform="translate(240.87931230664253 410) rotate(-125)" fill="#1a1026"/><path d="M0,0 Q34,-26 78,-6 Q40,-14 0,0Z" transform="translate(240.87931230664253 410) rotate(-90)" fill="#1a1026"/><path d="M0,0 Q34,-26 78,-6 Q40,-14 0,0Z" transform="translate(240.87931230664253 410) rotate(-55)" fill="#1a1026"/><path d="M0,0 Q34,-26 78,-6 Q40,-14 0,0Z" transform="translate(240.87931230664253 410) rotate(-20)" fill="#1a1026"/><path d="M0,0 Q34,-26 78,-6 Q40,-14 0,0Z" transform="translate(240.87931230664253 410) rotate(15)" fill="#1a1026"/><path d="M0,0 Q34,-26 78,-6 Q40,-14 0,0Z" transform="translate(240.87931230664253 410) rotate(-195)" fill="#1a1026"/></g><g><path d="M1006.6931781778112,640 Q996.6931781778112,540 956.6931781778112,440" stroke="#1a1026" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M0,0 Q34,-26 78,-6 Q40,-14 0,0Z" transform="translate(956.6931781778112 440) rotate(-160)" fill="#1a1026"/><path d="M0,0 Q34,-26 78,-6 Q40,-14 0,0Z" transform="translate(956.6931781778112 440) rotate(-125)" fill="#1a1026"/><path d="M0,0 Q34,-26 78,-6 Q40,-14 0,0Z" transform="translate(956.6931781778112 440) rotate(-90)" fill="#1a1026"/><path d="M0,0 Q34,-26 78,-6 Q40,-14 0,0Z" transform="translate(956.6931781778112 440) rotate(-55)" fill="#1a1026"/><path d="M0,0 Q34,-26 78,-6 Q40,-14 0,0Z" transform="translate(956.6931781778112 440) rotate(-20)" fill="#1a1026"/><path d="M0,0 Q34,-26 78,-6 Q40,-14 0,0Z" transform="translate(956.6931781778112 440) rotate(15)" fill="#1a1026"/><path d="M0,0 Q34,-26 78,-6 Q40,-14 0,0Z" transform="translate(956.6931781778112 440) rotate(-195)" fill="#1a1026"/></g><path class="layer" d="M520,700 L520,540 L720,470 L920,540 L920,700Z" fill="#1a1026"/><rect class="layer" x="600" y="570" width="46" height="60" fill="#ffd27a"/><rect class="layer" x="790" y="570" width="46" height="60" fill="#ffd27a"/><path class="layer" d="M-160,678.8 Q0,663.6 80,671.5 Q160,679.5 240,665.2 Q320,651 400,664 Q480,677 560,668.7 Q640,660.4 720,670.3 Q800,680.2 880,673.9 Q960,667.5 1040,673.7 Q1120,679.9 1200,675.3 Q1280,670.8 1360,660.4 Q1440,650.1 1520,656.7 L1540,700 L-100,700 Z" fill="#120a1b"/></svg>
 </header>
-<section>
-  <h2>What we offer</h2>
-  <div class="grid">
-      <div class="card"><h3>Rooms</h3><p>Simple, clean and comfortable.</p></div>
-      <div class="card"><h3>Breakfast &amp; local food</h3><p>Start the day the local way.</p></div>
-      <div class="card"><h3>Tours &amp; transfers</h3><p>We help you plan what to see.</p></div>
-  </div>
-  <p class="note">Example services: to be replaced with yours (with your prices and photos).</p>
-</section>
-<section>
-  <h2>How it works</h2>
-  <ol>
-      <li><span>1</span>Tell us your dates</li>
-      <li><span>2</span>We confirm availability</li>
-      <li><span>3</span>Arrive and relax</li>
-  </ol>
-</section>
-<section id="contact">
-  <h2>Get in touch</h2>
-  <div class="btns">
-      <a class="btn" href="https://wa.me/0094778595501">Message us on WhatsApp</a>
-  </div>
-  <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Ancient+tree+guesthouse+Mirissa">Find us on the map</a></p>
-</section>
+<main>
+  <section>
+    <h2>What you can book</h2>
+    <div class="list">
+      <article class="row">
+        <h3>Rooms</h3>
+        <p>Simple, clean and comfortable, with a good night's sleep as the goal.</p>
+        <a href="https://wa.me/0094778595501?text=Hi%20Ancient%20tree%20guesthouse%2C%20I'd%20like%20to%20ask%20about%20availability.">Ask about this</a>
+      </article>
+      <article class="row">
+        <h3>Breakfast and local food</h3>
+        <p>Start the day the local way, or ask for dinner.</p>
+        <a href="https://wa.me/0094778595501?text=Hi%20Ancient%20tree%20guesthouse%2C%20I'd%20like%20to%20ask%20about%20availability.">Ask about this</a>
+      </article>
+      <article class="row">
+        <h3>Tours and transfers</h3>
+        <p>Tell us what you want to see and we will help you get there.</p>
+        <a href="https://wa.me/0094778595501?text=Hi%20Ancient%20tree%20guesthouse%2C%20I'd%20like%20to%20ask%20about%20availability.">Ask about this</a>
+      </article>
+    </div>
+    <p class="note">Example services: to be replaced with yours, with your prices and photos.</p>
+  </section>
+  <section id="contact">
+    <h2>Ask us anything</h2>
+    <p>Send a message with your dates and what you have in mind. We answer personally.</p>
+    <div class="btns"><a class="btn" href="https://wa.me/0094778595501?text=Hi%20Ancient%20tree%20guesthouse%2C%20I'd%20like%20to%20ask%20about%20availability.">Message us on WhatsApp</a><a class="btn ghost dark" href="https://www.google.com/maps/search/?api=1&amp;query=Ancient+tree+guesthouse+Mirissa">Find us on the map</a></div>
+  </section>
+</main>
 <footer>Concept page for Ancient tree guesthouse, designed by Alexandre. Not an official website.</footer>
+<div class="bar"><a class="btn" href="https://wa.me/0094778595501?text=Hi%20Ancient%20tree%20guesthouse%2C%20I'd%20like%20to%20ask%20about%20availability.">Message us on WhatsApp</a></div>
 </body>
 </html>
