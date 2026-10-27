@@ -74,6 +74,18 @@ nav .btn{padding:11px 20px;font-size:15px}
 .iw{display:inline}
 .lead.long{font-size:clamp(1.25rem,2.4vw,1.8rem);max-width:46ch;line-height:1.45}
 
+.gal{padding:0 0 140px}
+.gal-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:22px}
+.gal-head h2{font-size:clamp(2rem,3.6vw,3rem)}
+.gal-btns{display:flex;gap:10px}
+.gal-btn{width:46px;height:46px;border-radius:50%;border:1px solid currentColor;background:transparent;color:inherit;font-size:20px;cursor:pointer;transition:background .2s,color .2s}
+.gal-btn:hover{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.gal-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.gal-track::-webkit-scrollbar{display:none}
+.gal-item{margin:0;flex:none;height:clamp(240px,52vh,480px);scroll-snap-align:start;border-radius:6px;overflow:hidden;background:#000}
+.gal-item img,.gal-item video{height:100%;width:auto;max-width:88vw;object-fit:cover;display:block}
+.gal-item video{aspect-ratio:16/9}
+@media (max-width:899px){.gal-item{height:clamp(220px,40vh,340px)}}
 .duo{display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:center;padding:0 0 140px}
 .pimg{margin:0;overflow:hidden;border-radius:6px;aspect-ratio:4/3}
 .pimg.p1{aspect-ratio:3/4}
@@ -151,9 +163,15 @@ footer p{margin:6px 0;font-size:14px;opacity:.65;max-width:70ch}
 <main>
   <div class="wrap">
     <p class="lead long" id="lead"><span class="iw">Born</span> <span class="iw">and</span> <span class="iw">raised</span> <span class="iw">on</span> <span class="iw">this</span> <span class="iw">coast,</span> <span class="iw">Mewan</span> <span class="iw">takes</span> <span class="iw">you</span> <span class="iw">out</span> <span class="iw">on</span> <span class="iw">the</span> <span class="iw">calm</span> <span class="iw">blue</span> <span class="iw">water</span> <span class="iw">of</span> <span class="iw">Trincomalee</span> <span class="iw">to</span> <span class="iw">swim</span> <span class="iw">with</span> <span class="iw">turtles,</span> <span class="iw">watch</span> <span class="iw">dolphins</span> <span class="iw">and</span> <span class="iw">whales,</span> <span class="iw">dive</span> <span class="iw">the</span> <span class="iw">reefs</span> <span class="iw">or</span> <span class="iw">go</span> <span class="iw">fishing</span> <span class="iw">the</span> <span class="iw">local</span> <span class="iw">way.</span> <span class="iw">Small</span> <span class="iw">groups,</span> <span class="iw">all</span> <span class="iw">equipment</span> <span class="iw">included,</span> <span class="iw">and</span> <span class="iw">a</span> <span class="iw">guide</span> <span class="iw">who</span> <span class="iw">knows</span> <span class="iw">exactly</span> <span class="iw">where</span> <span class="iw">the</span> <span class="iw">sea</span> <span class="iw">is</span> <span class="iw">at</span> <span class="iw">its</span> <span class="iw">best.</span></p>
-    <div class="duo" id="duo">
-      <figure class="pimg p0"><img src="images/mewan.jpg" alt="Dive &amp; Snorkeling with Mewan" loading="lazy"></figure>
-      <figure class="pimg p1"><img src="images/beach.jpg" alt="Dive &amp; Snorkeling with Mewan" loading="lazy"></figure>
+    <div class="gal" id="gal">
+      <div class="gal-head"><h2>Gallery</h2><div class="gal-btns"><button type="button" class="gal-btn" data-dir="-1" aria-label="Previous">&larr;</button><button type="button" class="gal-btn" data-dir="1" aria-label="Next">&rarr;</button></div></div>
+      <div class="gal-track" id="galTrack">
+        <figure class="gal-item"><img src="images/gallery/01-mewan.jpg" alt="Dive &amp; Snorkeling with Mewan" loading="lazy"></figure>
+        <figure class="gal-item"><video src="images/gallery/02-dolphins.mp4" muted loop playsinline preload="metadata"></video></figure>
+        <figure class="gal-item"><video src="images/gallery/03-seabed.mp4" muted loop playsinline preload="metadata"></video></figure>
+        <figure class="gal-item"><video src="images/gallery/04-boat.mp4" muted loop playsinline preload="metadata"></video></figure>
+        <figure class="gal-item"><video src="images/gallery/05-stingray.mp4" muted loop playsinline preload="metadata"></video></figure>
+      </div>
     </div>
   </div>
   <section class="hs" id="services">
@@ -295,6 +313,17 @@ footer p{margin:6px 0;font-size:14px;opacity:.65;max-width:70ch}
 
     window.addEventListener("load",function(){ScrollTrigger.refresh()});
   }catch(e){done();if(window.gsap){gsap.set(".hero .w>span,.cta .w>span",{yPercent:0});gsap.set(".hero .fade,.iw",{opacity:1,y:0})}}
+})();
+</script>
+<script>
+(function(){
+  var t=document.getElementById("galTrack");if(!t)return;
+  document.querySelectorAll(".gal-btn").forEach(function(b){b.addEventListener("click",function(){t.scrollBy({left:Number(b.dataset.dir)*Math.max(320,t.clientWidth*.7),behavior:"smooth"})})});
+  var vs=t.querySelectorAll("video");
+  if("IntersectionObserver" in window&&!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var p=e.target.play();if(p&&p.catch)p.catch(function(){})}else{e.target.pause()}})},{root:t,threshold:.6});
+    vs.forEach(function(v){io.observe(v)});
+  }
 })();
 </script>
 </body>
